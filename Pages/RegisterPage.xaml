@@ -34,49 +34,49 @@
             </TextBlock>
             <TextBox x:Name="FirstName" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="FirstNameErrorMsg" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="FirstNameErrorMsg" Foreground="Maroon" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Last Name
             </TextBlock>
             <TextBox x:Name="LastName" AllowFocusOnInteraction="True" Grid.Row="1" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="LastNameErrorMsg" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="LastNameErrorMsg" Foreground="Maroon" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="2" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Password
             </TextBlock>
             <PasswordBox x:Name="Password" AllowFocusOnInteraction="True" Margin="10" Grid.Row="2" Grid.Column="1"
                          FontSize="20" />
-            <TextBlock x:Name="PasswordErrorMsg" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="PasswordErrorMsg" Foreground="Maroon" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="3" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Confirm Password
             </TextBlock>
             <PasswordBox x:Name="ConfirmPassword" AllowFocusOnInteraction="True" Margin="10" Grid.Row="3"
                          Grid.Column="1" FontSize="20" />
-            <TextBlock x:Name="ConfirmPasswordErrorMsg" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="ConfirmPasswordErrorMsg" Foreground="Maroon" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="4" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Address
             </TextBlock>
             <TextBox x:Name="Address" AllowFocusOnInteraction="True" Grid.Row="4" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="AddressErrorMsg" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="AddressErrorMsg" Foreground="Maroon" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="5" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Phone
             </TextBlock>
             <TextBox x:Name="Phone" AllowFocusOnInteraction="True" Grid.Row="5" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="PhoneErrorMsg" Grid.Row="5" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="PhoneErrorMsg" Foreground="Maroon" Grid.Row="5" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="6" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Avatar
             </TextBlock>
             <TextBox x:Name="Avatar" AllowFocusOnInteraction="True" Grid.Row="6" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="AvatarErrorMsg" Grid.Row="6" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="AvatarErrorMsg" Foreground="Maroon" Grid.Row="6" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="7" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Gender
@@ -93,14 +93,14 @@
             </TextBlock>
             <TextBox x:Name="Email" AllowFocusOnInteraction="True" Grid.Row="8" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:Name="EmailErrorMsg" Grid.Row="8" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="EmailErrorMsg" Foreground="Maroon" Grid.Row="8" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="9" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Birthday
             </TextBlock>
             <CalendarDatePicker x:Name="Birthday" AllowFocusOnInteraction="True" Grid.Row="9" Grid.Column="1"
                                 Margin="10" FontSize="20" DateChanged="Select_Birthday" />
-            <TextBlock x:Name="BirthdayErrorMsg" Grid.Row="9" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:Name="BirthdayErrorMsg" Foreground="Maroon" Grid.Row="9" Grid.Column="2" Margin="10" FontSize="20" />
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button FontSize="20" Margin="10" Click="Submit_OnClick">Submit</Button>
