@@ -34,49 +34,49 @@
             </TextBlock>
             <TextBox x:ConnectionId='4' x:Name="FirstName" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='5' x:Name="FirstNameErrorMsg" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='5' x:Name="FirstNameErrorMsg" Foreground="Maroon" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Last Name
             </TextBlock>
             <TextBox x:ConnectionId='6' x:Name="LastName" AllowFocusOnInteraction="True" Grid.Row="1" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='7' x:Name="LastNameErrorMsg" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='7' x:Name="LastNameErrorMsg" Foreground="Maroon" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="2" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Password
             </TextBlock>
             <PasswordBox x:ConnectionId='8' x:Name="Password" AllowFocusOnInteraction="True" Margin="10" Grid.Row="2" Grid.Column="1"
                          FontSize="20" />
-            <TextBlock x:ConnectionId='9' x:Name="PasswordErrorMsg" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='9' x:Name="PasswordErrorMsg" Foreground="Maroon" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="3" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Confirm Password
             </TextBlock>
             <PasswordBox x:ConnectionId='10' x:Name="ConfirmPassword" AllowFocusOnInteraction="True" Margin="10" Grid.Row="3"
                          Grid.Column="1" FontSize="20" />
-            <TextBlock x:ConnectionId='11' x:Name="ConfirmPasswordErrorMsg" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='11' x:Name="ConfirmPasswordErrorMsg" Foreground="Maroon" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="4" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Address
             </TextBlock>
             <TextBox x:ConnectionId='12' x:Name="Address" AllowFocusOnInteraction="True" Grid.Row="4" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='13' x:Name="AddressErrorMsg" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='13' x:Name="AddressErrorMsg" Foreground="Maroon" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="5" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Phone
             </TextBlock>
             <TextBox x:ConnectionId='14' x:Name="Phone" AllowFocusOnInteraction="True" Grid.Row="5" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='15' x:Name="PhoneErrorMsg" Grid.Row="5" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='15' x:Name="PhoneErrorMsg" Foreground="Maroon" Grid.Row="5" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="6" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Avatar
             </TextBlock>
             <TextBox x:ConnectionId='16' x:Name="Avatar" AllowFocusOnInteraction="True" Grid.Row="6" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='17' x:Name="AvatarErrorMsg" Grid.Row="6" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='17' x:Name="AvatarErrorMsg" Foreground="Maroon" Grid.Row="6" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="7" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Gender
@@ -93,14 +93,14 @@
             </TextBlock>
             <TextBox x:ConnectionId='18' x:Name="Email" AllowFocusOnInteraction="True" Grid.Row="8" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='19' x:Name="EmailErrorMsg" Grid.Row="8" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='19' x:Name="EmailErrorMsg" Foreground="Maroon" Grid.Row="8" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="9" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Birthday
             </TextBlock>
             <CalendarDatePicker x:ConnectionId='20' x:Name="Birthday" AllowFocusOnInteraction="True" Grid.Row="9" Grid.Column="1"
                                 Margin="10" FontSize="20"                               />
-            <TextBlock x:ConnectionId='21' x:Name="BirthdayErrorMsg" Grid.Row="9" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='21' x:Name="BirthdayErrorMsg" Foreground="Maroon" Grid.Row="9" Grid.Column="2" Margin="10" FontSize="20" />
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:ConnectionId='2' FontSize="20" Margin="10"                       >Submit</Button>
