@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel x:ConnectionId='2'                                   >
         <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">ADD A NEW SONG</TextBlock>
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
@@ -27,42 +27,48 @@
                        TextAlignment="Right" FontSize="20">
                 Song Name
             </TextBlock>
-            <TextBox x:ConnectionId='4' x:Name="Name" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
+            <TextBox x:ConnectionId='6' x:Name="SongName" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='5' x:Name="NameErrorMsg" Foreground="Maroon" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='7' x:Name="NameErrorMsg" Foreground="Maroon" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Singer
             </TextBlock>
-            <TextBox x:ConnectionId='6' x:Name="Singer" AllowFocusOnInteraction="True" Grid.Row="1" Grid.Column="1" Margin="10"
+            <TextBox x:ConnectionId='8' x:Name="Singer" AllowFocusOnInteraction="True" Grid.Row="1" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='7' x:Name="SingerErrorMsg" Foreground="Maroon" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='9' x:Name="SingerErrorMsg" Foreground="Maroon" Grid.Row="1" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="2" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Author
             </TextBlock>
-            <TextBox x:ConnectionId='8' x:Name="Author" AllowFocusOnInteraction="True" Grid.Row="2" Grid.Column="1" Margin="10"
+            <TextBox x:ConnectionId='10' x:Name="Author" AllowFocusOnInteraction="True" Grid.Row="2" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='9' x:Name="AuthorErrorMsg" Foreground="Maroon" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='11' x:Name="AuthorErrorMsg" Foreground="Maroon" Grid.Row="2" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="3" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Thumbnail
             </TextBlock>
-            <TextBox x:ConnectionId='10' x:Name="Thumbnail" AllowFocusOnInteraction="True" Grid.Row="3" Grid.Column="1" Margin="10"
+            <TextBox x:ConnectionId='12' x:Name="Thumbnail" AllowFocusOnInteraction="True" Grid.Row="3" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='11' x:Name="ThumbnailErrorMsg" Foreground="Maroon" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='13' x:Name="ThumbnailErrorMsg" Foreground="Maroon" Grid.Row="3" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="4" Grid.Column="0"
                        TextAlignment="Right" FontSize="20">
                 Link
             </TextBlock>
-            <TextBox x:ConnectionId='12' x:Name="Link" AllowFocusOnInteraction="True" Grid.Row="4" Grid.Column="1" Margin="10"
+            <TextBox x:ConnectionId='14' x:Name="Link" AllowFocusOnInteraction="True" Grid.Row="4" Grid.Column="1" Margin="10"
                      FontSize="20" />
-            <TextBlock x:ConnectionId='13' x:Name="LinkErrorMsg" Foreground="Maroon" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
+            <TextBlock x:ConnectionId='15' x:Name="LinkErrorMsg" Foreground="Maroon" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="20" />
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:ConnectionId='2' FontSize="20" Margin="10"                       >Submit</Button>
-            <Button x:ConnectionId='3' FontSize="20" Margin="10"                      >Reset</Button>
+            <Button x:ConnectionId='4' FontSize="20" Margin="10"                       >Submit</Button>
+            <Button x:ConnectionId='5' FontSize="20" Margin="10"                      >Reset</Button>
         </StackPanel>
+        <TextBlock x:ConnectionId='3' x:Name="ResponseMsg" Foreground="Maroon" Margin="10" FontSize="20" />
+        <!-- <StackPanel> -->
+        <!--     <TextBlock>Content of File</TextBlock> -->
+        <!--     <TextBlock x:Name="FileContent"></TextBlock> -->
+        <!--     <Button Click="UploadMP3">Upload Mp3</Button> -->
+        <!-- </StackPanel> -->
     </StackPanel>
 </Page>
 

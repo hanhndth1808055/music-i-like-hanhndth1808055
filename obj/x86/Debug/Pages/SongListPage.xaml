@@ -5,34 +5,34 @@
     xmlns:local="using:FinalProjectMusic.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:FinalProjectMusic.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
         <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">SONG LIST</TextBlock>
-        <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">LOG IN</TextBlock>
-        <Grid RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="4*" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-            <Image Grid.Row="0" Grid.Column="0"
-                   Width="50"
-                   Height="50"
-                   Source="https://photo-resize-zmp3.zadn.vn/w94_r1x1_jpeg/cover/d/2/a/8/d2a8fe2f80b1da9ed5ca4d3fc921446f.jpg"
-                   Stretch="UniformToFill" />
-            <TextBlock VerticalAlignment="Center" FontStyle="Oblique" FontWeight="ExtraBold" Grid.Row="0" Grid.Column="1" FontSize="20" Margin="20">Song name example</TextBlock>
-            <StackPanel Grid.Row="0" Grid.Column="2">
-                <TextBlock FontSize="20" Margin="20">Author: Nguyen Hai Phong</TextBlock>
-                <TextBlock FontSize="20" Margin="20">Singer: Dinh Manh Duy</TextBlock>
-            </StackPanel>
-        </Grid>
-
+        <GridView x:ConnectionId='2' x:Name="ControlGridView"
+                  IsItemClickEnabled="True"
+                                               x:FieldModifier="public"
+                                                         
+                  >
+            <GridView.ItemTemplate>
+                <DataTemplate x:Name="ImageOverlayDataTemplate"                         >
+                    <Grid x:ConnectionId='4' Height="180" Width="320"                                          >
+                        <Image x:ConnectionId='5'                             Stretch="UniformToFill"/>
+                        <StackPanel Orientation="Vertical" Height="60" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}" Padding="12">
+                            <TextBlock x:ConnectionId='6'                     />
+                            <TextBlock x:ConnectionId='7'                        Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>
     </StackPanel>
 </Page>
 

@@ -40,6 +40,14 @@
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "SQLitePCL": {
+              "target": "Package",
+              "version": "[3.8.7.2, )"
             }
           },
           "imports": [

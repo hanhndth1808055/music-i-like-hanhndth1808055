@@ -1,4 +1,6 @@
 WinMetadata\Windows.winmd
+SQLitePCL.Ext.dll
+SQLitePCL.Ext.pri
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
@@ -7,11 +9,20 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
+ApplayoutDemo.xbf
+FinalExam\AddContactPage.xbf
+FinalExam\ListContactPage.xbf
+FinalExam\SearchContactPage.xbf
+FinalPracticalExam.xbf
 FinalProjectMusic.xr.xml
 MainPage.xbf
 Pages\AddNewSongPage.xbf
+Pages\DemoCameraPage.xbf
+Pages\DemoFilePage.xbf
 Pages\LayoutPage.xbf
 Pages\LogInPage.xbf
+Pages\MyProfilePage.xbf
+Pages\MySongPage.xbf
 Pages\RegisterPage.xbf
 Pages\SongListPage.xbf
 Properties\Default.rd.xml

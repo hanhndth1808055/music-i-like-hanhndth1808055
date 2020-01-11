@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel Loaded="FrameworkElement_OnLoaded">
         <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">ADD A NEW SONG</TextBlock>
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
                        TextAlignment="Right" FontSize="20">
                 Song Name
             </TextBlock>
-            <TextBox x:Name="Name" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
+            <TextBox x:Name="SongName" AllowFocusOnInteraction="True" Grid.Row="0" Grid.Column="1" Margin="10"
                      FontSize="20" />
             <TextBlock x:Name="NameErrorMsg" Foreground="Maroon" Grid.Row="0" Grid.Column="2" Margin="10" FontSize="20" />
             <TextBlock FontWeight="SemiBold" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="0"
@@ -63,5 +63,11 @@
             <Button FontSize="20" Margin="10" Click="Submit_OnClick">Submit</Button>
             <Button FontSize="20" Margin="10" Click="Reset_OnClick">Reset</Button>
         </StackPanel>
+        <TextBlock x:Name="ResponseMsg" Foreground="Maroon" Margin="10" FontSize="20" />
+        <!-- <StackPanel> -->
+        <!--     <TextBlock>Content of File</TextBlock> -->
+        <!--     <TextBlock x:Name="FileContent"></TextBlock> -->
+        <!--     <Button Click="UploadMP3">Upload Mp3</Button> -->
+        <!-- </StackPanel> -->
     </StackPanel>
 </Page>

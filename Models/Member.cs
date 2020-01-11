@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace FinalProjectMusic.Models
 {
-    class Member
+    public class Member
     {
+        public long id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string password { get; set; }
@@ -20,7 +21,9 @@ namespace FinalProjectMusic.Models
         public int gender { get; set; }
         public string email { get; set; }
         public string birthday { get; set; }
-
+        public string introduction { get; set; }
+        public string salt { get; set; }
+        public string createdAt { get; set; }
         public Dictionary<string, string> Validate()
         {
             Dictionary<string, string> ErrorMsgDictionary = new Dictionary<string, string>();
@@ -47,6 +50,11 @@ namespace FinalProjectMusic.Models
                 ErrorMsgDictionary["InvalidAddress"] = "Empty Address!";
             }
 
+            if (String.IsNullOrEmpty(address))
+            {
+                ErrorMsgDictionary["InvalidAvatar"] = "Empty Avatar!";
+            }
+
             Regex phoneRegex =
                 new Regex(
                     @"^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$");
@@ -64,12 +72,12 @@ namespace FinalProjectMusic.Models
                 ErrorMsgDictionary["InvalidEmail"] = "Email Format Is Incorrect!";
             }
 
-            Regex avatarRegex = new Regex(@"^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$");
-
-            if (!avatarRegex.IsMatch(avatar))
-            {
-                ErrorMsgDictionary["InvalidAvatar"] = "Link Avatar Is Invalid!";
-            }
+            // Regex avatarRegex = new Regex(@"^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$");
+            //
+            // if (!avatarRegex.IsMatch(avatar))
+            // {
+            //     ErrorMsgDictionary["InvalidAvatar"] = "Link Avatar Is Invalid!";
+            // }
 
             string[] formats = {"yyyy-MM-dd"};
             if (!DateTime.TryParseExact(birthday, formats,
