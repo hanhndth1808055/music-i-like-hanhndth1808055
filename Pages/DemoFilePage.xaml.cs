@@ -31,12 +31,12 @@ namespace FinalProjectMusic.Pages
             this.InitializeComponent();
         }
 
-        private void Write_Clicked(object sender, RoutedEventArgs e)
+        private async void Write_Clicked(object sender, RoutedEventArgs e)
         {
             FileContent.Text = "";
             if (!String.IsNullOrEmpty(FileName.Text) && !String.IsNullOrEmpty(Content1.Text))
             {
-                FileHandleService.WriteToFile(FileName.Text, Content1.Text);
+                await FileHandleService.WriteToFile(FileName.Text, Content1.Text);
                 FileContent.Text = "Create file successfully!";
                 FileName.Text = "";
                 Content1.Text = "";

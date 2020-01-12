@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel Loaded="FrameworkElement_OnLoaded">
         <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">MY PROFILE</TextBlock>
         <StackPanel Orientation="Horizontal" MinWidth="200px">
             <StackPanel HorizontalAlignment="Center">

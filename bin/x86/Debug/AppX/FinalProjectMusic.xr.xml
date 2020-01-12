@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
-  <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="PhoneNumber" />
-    <RootPropertyPathName Name="Name" />
-  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
@@ -75,12 +71,15 @@
       <RootProperty Name="Value" />
     </RootType>
     <RootType FullName="FinalProjectMusic.ApplayoutDemo" />
+    <RootType FullName="FinalProjectMusic.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
       <RootProperty Name="Orientation" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="MaxWidth" />
+      <RootProperty Name="MaxHeight" />
       <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
@@ -93,9 +92,8 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Inlines" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Foreground" />
-      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Text" />
       <RootProperty Name="Style" />
     </RootType>
@@ -103,8 +101,6 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="MinWidth" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
@@ -117,32 +113,20 @@
       <RootProperty Name="AllowFocusOnInteraction" />
       <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Text" />
       <RootProperty Name="Visibility" />
     </RootType>
-    <RootType FullName="FinalProjectMusic.FinalExam.AddContactPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="Loaded" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="FinalProjectMusic.FinalExam.ListContactPage" />
-    <RootType FullName="FinalProjectMusic.FinalExam.SearchContactPage" />
-    <RootType FullName="FinalProjectMusic.FinalPracticalExam" />
-    <RootType FullName="FinalProjectMusic.MainPage" />
     <RootType FullName="FinalProjectMusic.Pages.AddNewSongPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
+      <RootProperty Name="Source" />
     </RootType>
     <RootType FullName="FinalProjectMusic.Pages.DemoCameraPage" />
     <RootType FullName="FinalProjectMusic.Pages.DemoFilePage" />
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="PaneBackground" />
       <RootProperty Name="IsPaneOpen" />
@@ -157,6 +141,7 @@
       <RootProperty Name="PrimaryCommands" />
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement" />
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />

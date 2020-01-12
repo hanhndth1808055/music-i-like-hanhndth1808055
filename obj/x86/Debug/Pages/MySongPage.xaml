@@ -9,20 +9,20 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel x:ConnectionId='2'                                   >
         <TextBlock FontSize="30" TextAlignment="Center" Margin="30" FontWeight="ExtraBold">SONG LIST</TextBlock>
-        <GridView x:ConnectionId='2' x:Name="ControlGridView"
+        <GridView x:ConnectionId='3' x:Name="ControlGridView"
                   IsItemClickEnabled="True"
                                              x:FieldModifier="public"
                                                          
         >
             <GridView.ItemTemplate>
                 <DataTemplate x:Name="ImageOverlayDataTemplate"                         >
-                    <Grid x:ConnectionId='4' Height="180" Width="320"                                          >
-                        <Image x:ConnectionId='5'                             Stretch="UniformToFill"/>
+                    <Grid x:ConnectionId='5' Height="180" Width="320"                                          >
+                        <Image x:ConnectionId='6'                             Stretch="UniformToFill"/>
                         <StackPanel Orientation="Vertical" Height="60" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}" Padding="12">
-                            <TextBlock x:ConnectionId='6'                     />
-                            <TextBlock x:ConnectionId='7'                        Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                            <TextBlock x:ConnectionId='7'                     />
+                            <TextBlock x:ConnectionId='8'                        Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

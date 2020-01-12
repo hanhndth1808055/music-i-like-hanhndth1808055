@@ -91,11 +91,7 @@
                                 </DataTemplate>
                             </HyperlinkButton.ContentTemplate>
                         </HyperlinkButton>
-                    </StackPanel>
-                    <!-- <ListView x:Name="NavLinksList" Margin="0,12,0,0" SelectionMode="None" Grid.Row="1" VerticalAlignment="Stretch" -->
-                    <!--       IsItemClickEnabled="True" ItemTemplate="{StaticResource NavLinkItemTemplate}"/> -->
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="14,24,0,24">
-                        <HyperlinkButton x:Name="LogOutLink" Click="Logout_Clicked" Content="Add New Song">
+                        <HyperlinkButton x:Name="LogOutLink" Click="Logout_Clicked" Content="Log Out">
                             <HyperlinkButton.ContentTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -105,6 +101,13 @@
                                 </DataTemplate>
                             </HyperlinkButton.ContentTemplate>
                         </HyperlinkButton>
+                    </StackPanel>
+                    <!-- <ListView x:Name="NavLinksList" Margin="0,12,0,0" SelectionMode="None" Grid.Row="1" VerticalAlignment="Stretch" -->
+                    <!--       IsItemClickEnabled="True" ItemTemplate="{StaticResource NavLinkItemTemplate}"/> -->
+                    <StackPanel Grid.Row="2" Margin="14">
+                        <StackPanel MaxWidth="300" MaxHeight="300">
+                            <Image x:Name="SongThumbnail" Stretch="Fill"></Image>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </SplitView.Pane>
@@ -139,7 +142,7 @@
                     <TextBlock x:Name="StatusText" Text="Now playing..." Margin="12,14"/>
                 </CommandBar.Content>
             </CommandBar>
-            
+            <MediaPlayerElement x:Name="MyPlayer"/>
         </StackPanel>
     </Grid>
 </Page>

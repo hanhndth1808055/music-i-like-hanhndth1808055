@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using FinalProjectMusic.Models;
 using FinalProjectMusic.Services;
@@ -32,18 +33,17 @@ namespace FinalProjectMusic.Pages
 
     public sealed partial class LayoutPage : Page
     {
-        public static MediaPlayerElement MyPlayer = new MediaPlayerElement();
         private static LayoutPage _instance;
-        public static Song currentSong;
-        public static int _currentSongIndex;
-        public static bool _autoReplaying = false;
-        public static bool _shuffleMode = false;
-        public static string ListName;
+        public Song currentSong;
+        public int _currentSongIndex;
+        public bool _autoReplaying = false;
+        public bool _shuffleMode = false;
+        public string ListName;
         public SongService _songService = new SongService();
         public bool _isPlaying = false;
-        public static ObservableCollection<Song> Songs = new ObservableCollection<Song>();
-        public static SongListPage _SongListPage = new SongListPage();
-        public static MySongPage _MySongPage = new MySongPage();
+        // public ObservableCollection<Song> Songs = new ObservableCollection<Song>();
+        public static SongListPage _SongListPage;
+        public static MySongPage _MySongPage;
 
         public static LayoutPage CreateInstance()
         {
@@ -58,41 +58,62 @@ namespace FinalProjectMusic.Pages
         {
             this.InitializeComponent();
             _instance = this;
+            _SongListPage = SongListPage.CreateInstance();
+            _MySongPage = MySongPage.CreateInstance();
             // _LayoutPage = this;
         }
 
-        public static void PlayCurrentSong(string pageName)
+        public void PlayCurrentSong(string pageName)
         {
-            if (pageName == "SongListPage")
+            if (pageName == "SongListPage" || ListName == "SongListPage")
             {
-                Songs = SongListPage.FullListSongs;
+                MyPlayer.Source = MediaSource.CreateFromUri(new Uri(currentSong.link));
+                PlayingStatus();
+                // _currentSongIndex = _SongListPage.FullListSongs.IndexOf(currentSong);
             }
 
-            if (pageName == "MySongPage")
+            if (pageName == "MySongPage" || ListName == "MySongPage")
             {
-                Songs = MySongPage.FullListSongs;
+                Debug.WriteLine(MySongPage.CreateInstance().currentSong.name);
+                MyPlayer.Source = MediaSource.CreateFromUri(new Uri(currentSong.link));
+                PlayingStatus();
+                // _currentSongIndex = _MySongPage.FullListSongs.IndexOf(currentSong);
             }
 
-            MyPlayer.Source = MediaSource.CreateFromUri(new Uri(currentSong.link));
-            CreateInstance().PlayingStatus();
-            _currentSongIndex = Songs.IndexOf(currentSong);
         }
 
         public void PlayingStatus()
         {
+            if (ListName == "MySongPage")
+            {
+                this.StatusText.Text = "Now Playing: " + currentSong.name;
+            }
+            if (ListName == "SongListPage")
+            {
+                this.StatusText.Text = "Now Playing: " + currentSong.name;
+            }
+
             MyPlayer.MediaPlayer.Play();
             this.PlayButton.Icon = new SymbolIcon(Symbol.Pause);
             _isPlaying = true;
-            this.StatusText.Text = "Now Playing: " + currentSong.name;
+            SongThumbnail.Source = new BitmapImage(new Uri(currentSong.thumbnail, UriKind.Absolute));
             Debug.WriteLine(StatusText.Text);
         }
 
         public void PausedStatus()
         {
+            if (ListName == "MySongPage")
+            {
+                StatusText.Text = "Paused. Song: " + currentSong.name;
+            }
+            if (ListName == "SongListPage")
+            {
+
+                StatusText.Text = "Paused. Song: " + currentSong.name;
+            }
             MyPlayer.MediaPlayer.Pause();
             PlayButton.Icon = new SymbolIcon(Symbol.Play);
             _isPlaying = false;
-            StatusText.Text = "Paused. Song: " + currentSong.name;
         }
 
         public async void PlayButton_Clicked(object sender, RoutedEventArgs e)
@@ -104,18 +125,20 @@ namespace FinalProjectMusic.Pages
 
             if (LogInPage._token != null & currentSong == null)
             {
-                SongListPage.FullListSongs = await _songService.LoadSongs();
-                Songs = SongListPage.FullListSongs;
+                _SongListPage.FullListSongs = await _songService.LoadSongs();
                 ListName = "SongListPage";
-                currentSong = Songs.FirstOrDefault();
-                PlayCurrentSong(null);
+                currentSong = _SongListPage.FullListSongs.FirstOrDefault();
+                PlayCurrentSong("SongListPage");
                 PlayingStatus();
-                _currentSongIndex = Songs.IndexOf(currentSong);
+                _currentSongIndex = _SongListPage.FullListSongs.IndexOf(currentSong);
                 // Debug.WriteLine(_currentSongIndex);
                 return;
             }
 
-            if (currentSong != null && _isPlaying)
+            if (
+                (currentSong != null && ListName == "SongListPage"
+                    || currentSong != null && ListName == "MySongPage")
+                    && _isPlaying)
             {
                 PausedStatus();
             }
@@ -125,67 +148,65 @@ namespace FinalProjectMusic.Pages
             }
         }
 
-        public void Next_OnClick(object sender, RoutedEventArgs e)
+        public async void Next_OnClick(object sender, RoutedEventArgs e)
         {
-            _currentSongIndex = Songs.IndexOf(currentSong);
-
-            // Debug.WriteLine(_currentSongIndex);
-
-            _currentSongIndex++;
-
-            if (_currentSongIndex >= Songs.Count)
+            if (_shuffleMode == false)
             {
-                _currentSongIndex = 0;
+                if (ListName == "SongListPage")
+                {
+                    currentSong = await _SongListPage.NextSongNormal(_currentSongIndex);
+                }
+
+                if (ListName == "MySongPage")
+                {
+                    currentSong = await _MySongPage.NextSongNormal(_currentSongIndex);
+                }
             }
-
-            currentSong = Songs[_currentSongIndex] as Song;
-            Debug.WriteLine("Next " + currentSong);
-            if (ListName == "SongListPage")
+            else
             {
-                SongListPage.currentSongInSongListPage = currentSong;
-                SongListPage._currentSongIndex = _currentSongIndex;
-                _SongListPage.ChangeSelectedIndexInSongList();
-            }
-            if (ListName == "MySongPage")
-            {
-                MySongPage.currentSongInMySongPage = currentSong;
-                MySongPage._currentSongIndex = _currentSongIndex;
-                _MySongPage.ChangeSelectedIndexInSongList();
+                if (ListName == "SongListPage")
+                {
+                    currentSong = await _SongListPage.ChangeSongShuffle();
+                }
+                if (ListName == "MySongPage")
+                {
+                    currentSong = await _MySongPage.ChangeSongShuffle();
+                }
             }
 
             MyPlayer.Source = MediaSource.CreateFromUri(new Uri(currentSong.link));
             PlayingStatus();
         }
 
-        public void Previous_OnClick(object sender, RoutedEventArgs e)
+        public async void Previous_OnClick(object sender, RoutedEventArgs e)
         {
-            _currentSongIndex = Songs.IndexOf(currentSong);
-
-            // Debug.WriteLine(_currentSongIndex);
-
-            _currentSongIndex--;
-
-            if (_currentSongIndex < 0)
+            if (_shuffleMode == false)
             {
-                _currentSongIndex = Songs.IndexOf(Songs.Last());
+                if (ListName == "SongListPage")
+                {
+                    currentSong = await _SongListPage.PreviousSongNormal(_currentSongIndex);
+                    
+                }
+                if (ListName == "MySongPage")
+                {
+                    currentSong = await _MySongPage.PreviousSongNormal(_currentSongIndex);
+                }
             }
-
-            currentSong = Songs[_currentSongIndex] as Song;
-
-            if (ListName == "SongListPage")
+            else
             {
-                SongListPage.currentSongInSongListPage = currentSong;
-                _SongListPage.ChangeSelectedIndexInSongList();
-            }
-
-            if (ListName == "MySongPage")
-            {
-                MySongPage.currentSongInMySongPage = currentSong;
-                _MySongPage.ChangeSelectedIndexInSongList();
+                if (ListName == "SongListPage")
+                {
+                    currentSong = await _SongListPage.ChangeSongShuffle();
+                }
+                if (ListName == "MySongPage")
+                {
+                    currentSong = await _MySongPage.ChangeSongShuffle();
+                }
             }
 
             MyPlayer.Source = MediaSource.CreateFromUri(new Uri(currentSong.link));
             PlayingStatus();
+
         }
 
         public void LogInLink_OnClick(object sender, RoutedEventArgs e)
@@ -236,76 +257,18 @@ namespace FinalProjectMusic.Pages
             }
         }
 
-        private async void Shuffle_Clicked(object sender, RoutedEventArgs e)
+        private void Shuffle_Clicked(object sender, RoutedEventArgs e)
         {
-            if (ListName == "SongListPage")
+            if (_shuffleMode == false)
             {
-                if (_shuffleMode == false)
-                {
-                    Debug.WriteLine("index before before " + _currentSongIndex);
-                    Shuffle<Song>(Songs);
-                    Debug.WriteLine("Shuffled Songs" + JsonConvert.SerializeObject(Songs));
+                _shuffleMode = true;
 
-                    Debug.WriteLine("Shuffled Songs" + JsonConvert.SerializeObject(SongListPage.FullListSongs));
-                    _shuffleMode = true;
-
-                }
-                else
-                {
-                    Debug.WriteLine("Song index before: " + _currentSongIndex);
-                    Debug.WriteLine("Shuffled " + JsonConvert.SerializeObject(Songs));
-                    SongListPage.FullListSongs = await _songService.LoadSongs();
-                    Songs = SongListPage.FullListSongs;
-                    Debug.WriteLine("Old " + JsonConvert.SerializeObject(SongListPage.FullListSongs));
-                    _shuffleMode = false;
-                    var song = Songs.First(x => x.id == currentSong.id);
-                    _currentSongIndex = Songs.IndexOf(song);
-                    currentSong = song;
-                    Debug.WriteLine("Song index after: " + _currentSongIndex);
-                }
             }
-            if (ListName == "MySongPage")
+            else
             {
-                if (_shuffleMode == false)
-                {
-                    Debug.WriteLine("index before before " + _currentSongIndex);
-                    Shuffle<Song>(Songs);
-                    Debug.WriteLine("Shuffled Songs" + JsonConvert.SerializeObject(Songs));
-
-                    Debug.WriteLine("Shuffled Songs" + JsonConvert.SerializeObject(MySongPage.FullListSongs));
-                    _shuffleMode = true;
-
-                }
-                else
-                {
-                    Debug.WriteLine("Song index before: " + _currentSongIndex);
-                    Debug.WriteLine("Shuffled " + JsonConvert.SerializeObject(Songs));
-                    MySongPage.FullListSongs = await _songService.LoadMySongs();
-                    Songs = MySongPage.FullListSongs;
-                    Debug.WriteLine("Old " + JsonConvert.SerializeObject(MySongPage.FullListSongs));
-                    _shuffleMode = false;
-                    var song = Songs.First(x => x.id == currentSong.id);
-                    _currentSongIndex = Songs.IndexOf(song);
-                    currentSong = song;
-                    Debug.WriteLine("Song index after: " + _currentSongIndex);
-                }
+                _shuffleMode = false;
             }
-        }
-        public static void Shuffle<T>(ObservableCollection<T> list)
-        {
-            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
-            int n = list.Count;
-            while (n > 1)
-            {
-                byte[] box = new byte[1];
-                do provider.GetBytes(box);
-                while (!(box[0] < n * (Byte.MaxValue / n)));
-                int k = (box[0] % n);
-                n--;
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
+
         }
 
         private void Logout_Clicked(object sender, RoutedEventArgs e)

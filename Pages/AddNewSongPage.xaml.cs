@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -58,46 +59,46 @@ namespace FinalProjectMusic.Pages
                 link = Link.Text
             };
 
-            _errorMsgDictionary = m.Validate();
-            if (_errorMsgDictionary.ContainsKey("InvalidName") &&
-                !string.IsNullOrEmpty(_errorMsgDictionary["InvalidName"]))
-            {
-                NameErrorMsg.Text = _errorMsgDictionary["InvalidName"];
-            }
-
-            if (_errorMsgDictionary.ContainsKey("InvalidSinger") &&
-                !string.IsNullOrEmpty(_errorMsgDictionary["InvalidSinger"]))
-            {
-                SingerErrorMsg.Text = _errorMsgDictionary["InvalidSinger"];
-            }
-
-            if (_errorMsgDictionary.ContainsKey("InvalidAuthor") &&
-                !string.IsNullOrEmpty(_errorMsgDictionary["InvalidAuthor"]))
-            {
-                AuthorErrorMsg.Text = _errorMsgDictionary["InvalidAuthor"];
-            }
-
-            if (_errorMsgDictionary.ContainsKey("InvalidThumbnail") &&
-                !string.IsNullOrEmpty(_errorMsgDictionary["InvalidThumbnail"]))
-            {
-                ThumbnailErrorMsg.Text = _errorMsgDictionary["InvalidThumbnail"];
-            }
-
-            if (_errorMsgDictionary.ContainsKey("InvalidLink") &&
-                !string.IsNullOrEmpty(_errorMsgDictionary["InvalidLink"]))
-            {
-                LinkErrorMsg.Text = _errorMsgDictionary["InvalidLink"];
-            }
-
-            if (_errorMsgDictionary.Count == 0)
-            {
+            // _errorMsgDictionary = m.Validate();
+            // if (_errorMsgDictionary.ContainsKey("InvalidName") &&
+            //     !string.IsNullOrEmpty(_errorMsgDictionary["InvalidName"]))
+            // {
+            //     NameErrorMsg.Text = _errorMsgDictionary["InvalidName"];
+            // }
+            //
+            // if (_errorMsgDictionary.ContainsKey("InvalidSinger") &&
+            //     !string.IsNullOrEmpty(_errorMsgDictionary["InvalidSinger"]))
+            // {
+            //     SingerErrorMsg.Text = _errorMsgDictionary["InvalidSinger"];
+            // }
+            //
+            // if (_errorMsgDictionary.ContainsKey("InvalidAuthor") &&
+            //     !string.IsNullOrEmpty(_errorMsgDictionary["InvalidAuthor"]))
+            // {
+            //     AuthorErrorMsg.Text = _errorMsgDictionary["InvalidAuthor"];
+            // }
+            //
+            // if (_errorMsgDictionary.ContainsKey("InvalidThumbnail") &&
+            //     !string.IsNullOrEmpty(_errorMsgDictionary["InvalidThumbnail"]))
+            // {
+            //     ThumbnailErrorMsg.Text = _errorMsgDictionary["InvalidThumbnail"];
+            // }
+            //
+            // if (_errorMsgDictionary.ContainsKey("InvalidLink") &&
+            //     !string.IsNullOrEmpty(_errorMsgDictionary["InvalidLink"]))
+            // {
+            //     LinkErrorMsg.Text = _errorMsgDictionary["InvalidLink"];
+            // }
+            //
+            // if (_errorMsgDictionary.Count == 0)
+            // {
                var msgArr = await _service.RegisterSong(m);
 
                if (msgArr != null)
                {
                    if (msgArr.ContainsKey("success"))
                    {
-                       ResponseMsg.Text = JsonConvert.SerializeObject(msgArr);
+                       ResponseMsg.Text = "Add song successfully!";
                    }
 
                    if (msgArr.ContainsKey("message"))
@@ -106,13 +107,9 @@ namespace FinalProjectMusic.Pages
                    }
                    if (msgArr.ContainsKey("error"))
                    {
-                       foreach (var _error in msgArr.Property("error"))
-                       {
-                           ResponseMsg.Text += _error.Value<string>();
-                       }
-                       ResponseMsg.Text = (string)msgArr.Property("message");
+                       ResponseMsg.Text = "Add song unsuccessfully!";
                    }
-               }
+               // }
             }
         }
 
@@ -173,11 +170,11 @@ namespace FinalProjectMusic.Pages
             if (mp3Song != null)
             {
                 // Application now has read/write access to the picked file
-                // FileContent.Text = "Picked file: " + mp3Song.Name;
+                LinkErrorMsg.Text = "Picked file: " + mp3Song.Name;
             }
             else
             {
-                // FileContent.Text = "Operation cancelled.";
+                LinkErrorMsg.Text = "Operation cancelled.";
             }
             
             if (this.mp3Song == null)
@@ -185,25 +182,69 @@ namespace FinalProjectMusic.Pages
                 return;
             }
 
-            HttpUploadFile("https://2-dot-backup-server-002.appspot.com/upload-my-file-handle", "myFile", "multipart/form-data");
+            // GoPost();
+            HttpUploadFile("https://2-dot-backup-server-002.appspot.com/upload-file-handle", "myFile", "multipart/form-data");
         }
 
+        // public async void GoPost()
+        // {
+        //     string baseUrl = "https://2-dot-backup-server-002.appspot.com/upload-my-file-handle";
+        //
+        //     Dictionary<string, string> parameters = new Dictionary<string, string>();
+        //
+        //     parameters.Add("cloudName", "dcykikkmq");
+        //     parameters.Add("apiKey", "469518162414619");
+        //     parameters.Add("apiSecret", "hgaiLKeG5joLPgtG0HCBIPs-YXY");
+        //
+        //     HttpClient client = new HttpClient();
+        //     client.DefaultRequestHeaders.Add("Authorization", "Basic " + LogInPage._token);
+        //     // client.BaseAddress = new Uri(baseUrl);
+        //     MultipartFormDataContent form = new MultipartFormDataContent();
+        //     HttpContent content = new StringContent("myFile");
+        //     HttpContent DictionaryItems = new FormUrlEncodedContent(parameters);
+        //    
+        //
+        //     form.Add(DictionaryItems);
+        //     // form.Add(content, "myFile");
+        //     var stream = await mp3Song.OpenStreamForReadAsync();
+        //     content = new StreamContent(stream);
+        //     content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
+        //     {
+        //         Name = "myFile",
+        //         FileName = mp3Song.Name
+        //     };
+        //     form.Add(content);
+        //
+        //     HttpResponseMessage response = null;
+        //
+        //     try
+        //     {
+        //         response = (client.PostAsync(baseUrl, form)).Result;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine(ex.Message);
+        //     }
+        //
+        //     var k = response.Content.ReadAsStringAsync().Result;
+        //     Debug.WriteLine("Result here " + k);
+        // }
         private async void HttpUploadFile(string url, string paramName, string contentType)
         {
             string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
             byte[] boundarybytes = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
-
+        
             HttpWebRequest wr = (HttpWebRequest)WebRequest.Create(url);
             wr.ContentType = "multipart/form-data; boundary=" + boundary;
             wr.Method = "POST";
             
             Stream rs = await wr.GetRequestStreamAsync();
             rs.Write(boundarybytes, 0, boundarybytes.Length);
-
-            string header = string.Format("Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\n\r\n", paramName, "path_file", contentType);
+        
+            string header = string.Format("Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\nAuthorization: {3}\r\n\r\n", paramName, "path_file", contentType, LogInPage._token);
             byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
             rs.Write(headerbytes, 0, headerbytes.Length);
-
+        
             // write file.
             Stream fileStream = await this.mp3Song.OpenStreamForReadAsync();
             byte[] buffer = new byte[4096];
@@ -212,10 +253,10 @@ namespace FinalProjectMusic.Pages
             {
                 rs.Write(buffer, 0, bytesRead);
             }
-
+        
             byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
             rs.Write(trailer, 0, trailer.Length);
-
+        
             WebResponse wresp = null;
             try
             {
@@ -229,15 +270,17 @@ namespace FinalProjectMusic.Pages
                 //ImageUrl.Text = u.AbsoluteUri;
                 //MyAvatar.Source = new BitmapImage(u);
                 //Debug.WriteLine(reader2.ReadToEnd());
-                string imageUrl = reader2.ReadToEnd();
-                Debug.WriteLine("result " + imageUrl);
+                string response = reader2.ReadToEnd();
+                Debug.WriteLine("result " + response);
+                Link.Text = (string) JObject.Parse(response)["secure_url"];
                 // ImageControl.Source = new BitmapImage(new Uri(imageUrl, UriKind.Absolute));
                 // FileContent.Text = imageUrl;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Error uploading file", ex.StackTrace);
-                Debug.WriteLine("Error uploading file", ex.InnerException);
+                LinkErrorMsg.Text = "Error uploading file!";
+                // Debug.WriteLine("Error uploading file", ex.StackTrace);
+                // Debug.WriteLine("Error uploading file", ex.InnerException);
                 if (wresp != null)
                 {
                     wresp = null;

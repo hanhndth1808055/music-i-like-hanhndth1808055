@@ -122,28 +122,13 @@
     <Compile Include="ApplayoutDemo.xaml.cs">
       <DependentUpon>ApplayoutDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FinalExam\AddContactPage.xaml.cs">
-      <DependentUpon>AddContactPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FinalExam\ListContactPage.xaml.cs">
-      <DependentUpon>ListContactPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FinalExam\SearchContactPage.xaml.cs">
-      <DependentUpon>SearchContactPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FinalPracticalExam.xaml.cs">
-      <DependentUpon>FinalPracticalExam.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MemberModel.cs" />
-    <Compile Include="Models\PhoneContact.cs" />
-    <Compile Include="Models\PhoneContactModel.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Models\SQLiteHelper.cs" />
-    <Compile Include="Models\SQLiteHelperF.cs" />
     <Compile Include="Pages\AddNewSongPage.xaml.cs">
       <DependentUpon>AddNewSongPage.xaml</DependentUpon>
     </Compile>
@@ -181,7 +166,6 @@
     <Compile Include="Services\MySongService.cs" />
     <Compile Include="Services\SongService.cs" />
     <Compile Include="Services\SQLiteMemberService.cs" />
-    <Compile Include="Services\SQLitePhoneContactService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -204,22 +188,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="ApplayoutDemo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FinalExam\AddContactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FinalExam\ListContactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FinalExam\SearchContactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FinalPracticalExam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

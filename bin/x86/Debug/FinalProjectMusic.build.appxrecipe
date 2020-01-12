@@ -85,18 +85,6 @@
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\ApplayoutDemo.xbf">
       <PackagePath>ApplayoutDemo.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\AddContactPage.xbf">
-      <PackagePath>FinalExam\AddContactPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\ListContactPage.xbf">
-      <PackagePath>FinalExam\ListContactPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\SearchContactPage.xbf">
-      <PackagePath>FinalExam\SearchContactPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalPracticalExam.xbf">
-      <PackagePath>FinalPracticalExam.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

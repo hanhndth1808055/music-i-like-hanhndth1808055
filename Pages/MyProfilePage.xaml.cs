@@ -48,12 +48,20 @@ namespace FinalProjectMusic.Pages
                     Introduction.Text = member.introduction;
                 }
                 Gender.Text = member.gender == 1 ? "Male" : (member.gender == 0 ? "Female" : "Other");
-                Birthday.Text = typeof(member.birthday);
+                Birthday.Text = member.birthday;
                 Email.Text = member.email;
                 Salt.Text = member.salt;
                 CreatedAt.Text = member.createdAt;
             }
-            Avatar.Source = new BitmapImage(new Uri(member.avatar, UriKind.Absolute)); ;
+            Avatar.Source = new BitmapImage(new Uri(member.avatar, UriKind.Absolute));
+        }
+
+        private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (LogInPage._token == null)
+            {
+                this.Frame.Navigate(typeof(LogInPage));
+            }
         }
     }
 }

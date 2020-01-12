@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-11T13:31:50.468</Modified>
+      <Modified>2020-01-12T16:22:44.507</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalProjectMusic.exe">
       <PackagePath>entrypoint\FinalProjectMusic.exe</PackagePath>
-      <Modified>2020-01-11T13:31:49.819</Modified>
+      <Modified>2020-01-12T16:22:43.723</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\.nuget\packages\newtonsoft.json\12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -102,71 +102,55 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalProjectMusic.xr.xml">
       <PackagePath>FinalProjectMusic.xr.xml</PackagePath>
-      <Modified>2020-01-11T12:35:13.460</Modified>
+      <Modified>2020-01-12T16:22:43.330</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\ApplayoutDemo.xbf">
       <PackagePath>ApplayoutDemo.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\AddContactPage.xbf">
-      <PackagePath>FinalExam\AddContactPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\ListContactPage.xbf">
-      <PackagePath>FinalExam\ListContactPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalExam\SearchContactPage.xbf">
-      <PackagePath>FinalExam\SearchContactPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\FinalPracticalExam.xbf">
-      <PackagePath>FinalPracticalExam.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\AddNewSongPage.xbf">
       <PackagePath>Pages\AddNewSongPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\DemoCameraPage.xbf">
       <PackagePath>Pages\DemoCameraPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\DemoFilePage.xbf">
       <PackagePath>Pages\DemoFilePage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\LayoutPage.xbf">
       <PackagePath>Pages\LayoutPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.370</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\LogInPage.xbf">
       <PackagePath>Pages\LogInPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\MyProfilePage.xbf">
       <PackagePath>Pages\MyProfilePage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.316</Modified>
+      <Modified>2020-01-12T16:22:43.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\MySongPage.xbf">
       <PackagePath>Pages\MySongPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\RegisterPage.xbf">
       <PackagePath>Pages\RegisterPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.384</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Pages\SongListPage.xbf">
       <PackagePath>Pages\SongListPage.xbf</PackagePath>
-      <Modified>2020-01-11T13:27:00.332</Modified>
+      <Modified>2020-01-12T16:22:43.388</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -174,11 +158,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-01-11T11:41:11.855</Modified>
+      <Modified>2020-01-12T10:31:14.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\LaptopAZ.vn\source\repos\FinalProjectMusic\bin\x86\Debug\Core\FinalProjectMusic.exe">
       <PackagePath>FinalProjectMusic.exe</PackagePath>
-      <Modified>2020-01-11T13:31:50.468</Modified>
+      <Modified>2020-01-12T16:22:44.496</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

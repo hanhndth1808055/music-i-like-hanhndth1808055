@@ -5,6 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.UserDataTasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,19 +29,27 @@ namespace FinalProjectMusic.Pages
     /// </summary>
     public sealed partial class MySongPage : Page
     {
-        public static ObservableCollection<Song> FullListSongs = new ObservableCollection<Song>();
+        private static MySongPage _instance;
+        public ObservableCollection<Song> FullListSongs;
         private SongService _service = new SongService();
-        public static Song currentSongInMySongPage = null;
-        public static int _currentSongIndex;
-
+        public Song currentSong;
+        public int _currentSongIndex;
+        public static LayoutPage _LayoutPage;
+        
         public MySongPage()
         {
             this.InitializeComponent();
+            _instance = this;
+            _LayoutPage = LayoutPage.CreateInstance();
         }
-
-        private void Reset_OnClick(object sender, RoutedEventArgs e)
+        public static MySongPage CreateInstance()
         {
-            throw new NotImplementedException();
+            if (_instance == null)
+            {
+                _instance = new MySongPage();
+            }
+
+            return _instance;
         }
 
         private async void MySongPage_Loaded(object sender, RoutedEventArgs e)
@@ -48,25 +59,93 @@ namespace FinalProjectMusic.Pages
             // Debug.WriteLine(JsonConvert.SerializeObject(FullListSongs));
         }
 
-
+        public async Task<ObservableCollection<Song>> LoadMySongsHere()
+        {
+            FullListSongs = await _service.LoadMySongs();
+            return FullListSongs;
+        }
         private void ControlGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            LayoutPage.ListName = "MySongPage";
-            currentSongInMySongPage = e.ClickedItem as Song;
-            LayoutPage.currentSong = currentSongInMySongPage;
+            _LayoutPage.ListName = "MySongPage";
+            currentSong = e.ClickedItem as Song;
+            _LayoutPage.currentSong = currentSong;
+            Debug.WriteLine("Current song " + currentSong.name);
             Debug.WriteLine("After clicked " + ControlGridView.SelectedIndex);
-            _currentSongIndex = FullListSongs.IndexOf(currentSongInMySongPage);
-            LayoutPage.PlayCurrentSong("MySongPage");
+            _currentSongIndex = FullListSongs.IndexOf(currentSong);
+            _LayoutPage._currentSongIndex = _currentSongIndex;
+            Debug.WriteLine("_currentSongIndex = FullListSongs.IndexOf(currentSong) " + FullListSongs.IndexOf(currentSong));
+            _LayoutPage.PlayCurrentSong("MySongPage");
         }
 
-        public void ChangeSelectedIndexInSongList()
-        {
-            Debug.WriteLine("Before " + ControlGridView.SelectedIndex);
+        // public void ChangeSelectedIndexInSongList()
+        // {
+        //     Debug.WriteLine("Before " + ControlGridView.SelectedIndex);
+        //
+        //     ControlGridView.SelectedIndex = _currentSongIndex;
+        //     Debug.WriteLine("After " + ControlGridView.SelectedIndex);
+        //     // Debug.WriteLine(FullListSongs.IndexOf(currentSongInMySongPage));
+        // }
 
-            ControlGridView.SelectedIndex = _currentSongIndex;
-            ControlGridView.SelectedItem = LayoutPage.currentSong;
-            Debug.WriteLine("After " + ControlGridView.SelectedIndex);
-            // Debug.WriteLine(FullListSongs.IndexOf(currentSongInMySongPage));
+        public async Task<Song> NextSongNormal(int index)
+        {
+            await LoadMySongsHere();
+            // Debug.WriteLine(FullListSongs.Count);
+            if (index >= FullListSongs.Count - 1)
+            {
+                index = 0;
+            }
+            else
+            {
+                index++;
+            }
+            // Debug.WriteLine("index next song " + index);
+            _LayoutPage._currentSongIndex = index;
+
+            return FullListSongs[index];
+        }
+
+        public async Task<Song> ChangeSongShuffle()
+        {
+            await LoadMySongsHere();
+
+            var index = RandomNumber(0, FullListSongs.Count);
+            _LayoutPage._currentSongIndex = index;
+
+            return FullListSongs[index];
+        }
+
+        // Generate a random number between two numbers  
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+
+        public async Task<Song> PreviousSongNormal(int index)
+        {
+            await LoadMySongsHere();
+            // Debug.WriteLine(FullListSongs.Count);
+            // Debug.WriteLine("Selected index: " + ControlGridView.SelectedIndex);
+            if (index <= 0)
+            {
+                index = FullListSongs.Count - 1;
+            }
+            else
+            {
+                index--;
+            }
+            // Debug.WriteLine("index next song " + index);
+            _LayoutPage._currentSongIndex = index;
+
+            return FullListSongs[index];
+        }
+
+        private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (LogInPage._token == null)
+            {
+                this.Frame.Navigate(typeof(LogInPage));
+            }
         }
     }
 }
